@@ -35,16 +35,9 @@ library("ggrepel")
 library("ggpubr")
 library("rstatix")
 
-# uncomment and use the following to update the data package---------------------------------------
-# latest_version <- file.info(list.files("~/network/X/Labs/Blaser/collaborators/baiocchi_long_manuscript/datapkg", full.names = T)) %>%
-#   as_tibble(rownames = "file") %>%
-#   arrange(desc(mtime)) %>%
-#   dplyr::slice(1) %>%
-#   pull(file) %>%
-#   str_extract("datapkg/.*") %>%
-#   str_replace("datapkg/", "")
-#
-# renv::install(paste0("~/network/X/Labs/Blaser/collaborators/baiocchi_long_manuscript/datapkg/",latest_version))
+# uncomment and use the following to install or update the data package---------------------------------------
+# bb_renv_datapkg(path = "~/network/X/Labs/Blaser/collaborators/baiocchi_long_manuscript/datapkg")
+
 
 # use this to load the data package-------------------------------------
 lazyData::requireData("baiocchi.long.datapkg")
