@@ -30,5 +30,5 @@ rename <- dplyr::rename
 count <- dplyr::count
 
 # output directories
-figs_out <- ""
-stats_out <- ""
+figs_out <- "~/network/X/Labs/Blaser/collaborators/baiocchi_long_manuscript/figs/R_output"
+tables_out <- "~/network/X/Labs/Blaser/collaborators/baiocchi_long_manuscript/tables"
