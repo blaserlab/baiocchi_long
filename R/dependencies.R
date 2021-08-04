@@ -21,6 +21,7 @@
 # renv::install("/usr/lib/R/site-library/scater")
 # renv::install("/usr/lib/R/site-library/topGO")
 # renv::install("/usr/lib/R/site-library/fastSave")
+# renv::install("ggpmisc")
 
 # load core packages for the analysis
 library("blaseRtools")
