@@ -37,7 +37,7 @@ library("ggpubr")
 library("rstatix")
 
 # uncomment and use the following to install or update the data package---------------------------------------
-# bb_renv_datapkg(path = "~/network/X/Labs/Blaser/collaborators/baiocchi_long_manuscript/datapkg")
+bb_renv_datapkg(path = "~/network/X/Labs/Blaser/collaborators/baiocchi_long_manuscript/datapkg")
 
 
 # use this to load the data package-------------------------------------

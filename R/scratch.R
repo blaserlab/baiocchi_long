@@ -1,26 +1,32 @@
-bb_gene_umap(cds_human_pass_counts, c("LYN","PIK3CD","MRTO4", "MYC", "SRM", "PLK1", "HSPE1", "MAD2L1", "KPNA2"))
-plot_genes_in_pseudotime(cds_human_pass_counts[rowData(cds_human_pass_counts)$gene_short_name == "PIK3CD",])
+# to make a new cell metadata column
+colData(cds_human_pass_counts)$specimen_new <- recode(colData(cds_human_pass_counts)$specimen,
+                                                      "P5" = "new_P5",
+                                                      "" = "",
+                                                      "" = "",
+                                                      "" = "")
+# make a faceted plot
+bb_var_umap(cds_human_pass_counts, "specimen", value_to_highlight = c("P5", "P10", "P53", "P61")) + facet_wrap(facets = vars(value))
 
-bb_var_umap(cds_human_pass_counts, "pseudotime")
-bb_var_umap(cds_human_pass_counts, "specimen")
-bb_var_umap(cds_human_pass_counts, "leiden")
-cds_human_pass_counts_top_markers %>% filter(cell_group == "leiden 4") %>% View()
+# make the overlay plot with custom color
+bb_var_umap(cds_human_pass_counts, "specimen", value_to_highlight = c("P5"), palette = "blue")
 
 
+colData(cds_human_pass_counts_5_10)
 
-# if you want to plot aggregate expression of groups of genes
-# create a data frame with columns for gene_id and gene_group
-# then feed it into bb_gene_umap.  For example:
+test_cds <- bb_align(cds_human_pass_counts_5_10, align_by = "specimen", n_cores = 24)
+test_cds <- reduce_dimension(test_cds, cores = 39)
+colData(test_cds)
 
-bb_gene_umap(
-  cds = cds_human_pass_counts,
-  gene_or_genes = data.frame(gene_id = rowData(cds_human_pass_counts)$id,
-                             gene_grouping = rowData(cds_human_pass_counts)$module_labeled)
+bb_var_umap(test_cds, "specimen")
+bb_var_umap(test_cds, "specimen", alt_dim_x = "prealignment_dim1", alt_dim_y = "prealignment_dim2")
+identical(
+  counts(cds_human_pass_counts_5_10),
+  counts(test_cds)
 )
+bb_var_umap(test_cds, "partition")
 
-# you'll have to use some of your coding skills to translate from gene_short_name to gene_id
-# and get your data table in this form.
-# bb_gene_umap will produce a faceted plot with a facet for each grouping
-# if you have one or more solid lists of gene groupings, like say from the literature
-# or from some other experiment we can add them into the gene metadata table
-# and make your code a little cleaner and error-proof
+test_cds <- bb_triplecluster(test_cds, n_top_markers = 50, outfile = "test.csv", n_cores = 39)
+
+bb_var_umap(test_cds, "partition")
+bb_var_umap(test_cds, "leiden")
+bb_var_umap(test_cds, "louvain")
