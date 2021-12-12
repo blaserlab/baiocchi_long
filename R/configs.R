@@ -3,8 +3,8 @@ theme_set(theme_cowplot(font_size = 10))
 
 
 # show_col(pal_npg("nrc")(10))
-experimental_group_palette <- c(
-)
+experimental_group_palette <- brewer.pal(n = 8, name = "Set1")
+names(experimental_group_palette) <- analysis_configs$specimen_new
 
 jitter_alpha_fill <- 0.2
 jitter_shape <- 21

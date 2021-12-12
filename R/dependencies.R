@@ -21,6 +21,8 @@
 # renv::install("/usr/lib/R/site-library/scater")
 # renv::install("/usr/lib/R/site-library/topGO")
 # renv::install("/usr/lib/R/site-library/fastSave")
+# renv::install("/usr/lib/R/site-library/pander")
+# renv::install("/usr/lib/R/site-library/Rcpp")
 # renv::install("ggpmisc")
 
 # load core packages for the analysis
@@ -35,8 +37,8 @@ library("RColorBrewer")
 library("ggrepel")
 library("ggpubr")
 library("rstatix")
+library("DoubletFinder")
 
-# uncomment and use the following to install or update the data package---------------------------------------
 bb_renv_datapkg(path = "~/network/X/Labs/Blaser/collaborators/baiocchi_long_manuscript/datapkg")
 
 
