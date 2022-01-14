@@ -86,14 +86,33 @@ bb_gene_umap(cds_human_pass_sf, gene_or_genes = bb_rowmeta(cds_human_pass_sf) %>
 bb_gene_umap(cds_human_pass_sf, gene_or_genes = "MTOR")
 
 # cluster representataion
+analysis_configs
+colData(cds_human_pass_sf)$treatment_time <-
+  recode(
+    colData(cds_human_pass_sf)$orig_id,
+    "P5" = "Untreated",
+    "P61" = "long_term_treated",
+    "P10" = "short_term_treated",
+    "P53" = "long_term_treated",
+    "P6_8_SP_VC_SURV" = "Untreated",
+    "P6_21_SP_VC" = "Untreated"
+  )
+
+bb_cluster_representation(
+  cds = cds_human_pass_sf[,colData(cds_human_pass_sf)$treatment_time %in% c("short_term_treated", "Untreated")],
+  cluster_var = "partition",
+  class_var = "treatment_time",
+  experimental_class = "short_term_treated",
+  control_class = "Untreated",
+  return_value = "table"
+)
 
 
 bb_cluster_representation(
-  cds = cds_human_pass_sf,
-  cluster_var = "leiden",
-  class_var = "treatment",
-  experimental_class = "PRMT5i",
+  cds = cds_human_pass_sf[,colData(cds_human_pass_sf)$treatment_time %in% c("long_term_treated", "Untreated")],
+  cluster_var = "partition",
+  class_var = "treatment_time",
+  experimental_class = "long_term_treated",
   control_class = "Untreated",
-  return_value = "plot"
+  return_value = "table"
 )
-
