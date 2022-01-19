@@ -37,6 +37,13 @@
       "Source": "Bioconductor",
       "Hash": "ddc1d29bbe66aaef34b0d17620b61a69"
     },
+    "BiocManager": {
+      "Package": "BiocManager",
+      "Version": "1.30.16",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "2fdca0877debdd4668190832cdee4c31"
+    },
     "BiocNeighbors": {
       "Package": "BiocNeighbors",
       "Version": "1.12.0",
@@ -74,6 +81,14 @@
       "Repository": "CRAN",
       "Hash": "030aaec5bc6553f35347cbb1e70b1a17"
     },
+    "DESeq2": {
+      "Package": "DESeq2",
+      "Version": "1.34.0",
+      "Source": "Local",
+      "RemoteType": "local",
+      "RemoteUrl": "/usr/lib/R/site-library/DESeq2",
+      "Hash": "16175ce377b09a7fd73b900b9de37a71"
+    },
     "DelayedArray": {
       "Package": "DelayedArray",
       "Version": "0.20.0",
@@ -85,18 +100,6 @@
       "Version": "1.16.0",
       "Source": "Bioconductor",
       "Hash": "9ae660d2827845adeaa2fbdc3e6ad468"
-    },
-    "DoubletFinder": {
-      "Package": "DoubletFinder",
-      "Version": "2.0.3",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "DoubletFinder",
-      "RemoteUsername": "chris-mcginnis-ucsf",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "5dfd96b06365d7843adf3a72ffb6a30f42c74a01",
-      "Hash": "1907e041f31d4b4c17b6e8783224c70e"
     },
     "FNN": {
       "Package": "FNN",
@@ -198,9 +201,11 @@
     "Matrix.utils": {
       "Package": "Matrix.utils",
       "Version": "0.9.8",
-      "Source": "Repository",
+      "Source": "Local",
       "Repository": "CRAN",
-      "Hash": "74d1586cef483fdd0703316240ed8c1e"
+      "RemoteType": "local",
+      "RemoteUrl": "/usr/lib/R/site-library/Matrix.utils",
+      "Hash": "c35a3c52fc78a9bac8044119b9883205"
     },
     "MatrixGenerics": {
       "Package": "MatrixGenerics",
@@ -443,6 +448,15 @@
       "Source": "Bioconductor",
       "Hash": "619feb3635b27a198477316a033b1ea8"
     },
+    "XML": {
+      "Package": "XML",
+      "Version": "3.99-0.8",
+      "Source": "Local",
+      "Repository": "CRAN",
+      "RemoteType": "local",
+      "RemoteUrl": "/usr/lib/R/site-library/XML",
+      "Hash": "5679c3b4665f8cd8bc0ef21c58a0101d"
+    },
     "XVector": {
       "Package": "XVector",
       "Version": "0.34.0",
@@ -455,6 +469,23 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "4f57884290cc75ab22f4af9e9d4ca862"
+    },
+    "annotate": {
+      "Package": "annotate",
+      "Version": "1.72.0",
+      "Source": "Local",
+      "RemoteType": "local",
+      "RemoteUrl": "/usr/lib/R/site-library/annotate",
+      "Hash": "f6866d08debc2b09d0eeb967804c7fe8"
+    },
+    "ashr": {
+      "Package": "ashr",
+      "Version": "2.2-47",
+      "Source": "Local",
+      "Repository": "CRAN",
+      "RemoteType": "local",
+      "RemoteUrl": "/usr/lib/R/site-library/ashr",
+      "Hash": "512890c6b12a8c7eb77391ec8d4d64ca"
     },
     "askpass": {
       "Package": "askpass",
@@ -526,27 +557,19 @@
     },
     "blaseRdata": {
       "Package": "blaseRdata",
-      "Version": "0.0.0.9006",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteUsername": "blaserlab",
-      "RemoteRepo": "blaseRdata",
-      "RemoteRef": "master",
-      "RemoteSha": "4cb9062f34ea57804eca8eb1c61f7d13027ab8ec",
-      "Hash": "20222a81114412f9544097f3ad73449a"
+      "Version": "0.0.0.9007",
+      "Source": "Local",
+      "RemoteType": "local",
+      "RemoteUrl": "/usr/lib/R/site-library/blaseRdata",
+      "Hash": "24c9952cc8375de0b8f04399dc0241f1"
     },
     "blaseRtools": {
       "Package": "blaseRtools",
-      "Version": "0.0.0.9049",
-      "Source": "GitHub",
-      "RemoteType": "github",
-      "RemoteHost": "api.github.com",
-      "RemoteRepo": "blaseRtools",
-      "RemoteUsername": "blaserlab",
-      "RemoteRef": "HEAD",
-      "RemoteSha": "e3fe3ef2e434c645ed06361bfbbea2693d7d11b9",
-      "Hash": "b1e623f89977796ec7f5a4701fbe8c1a"
+      "Version": "0.0.0.9051",
+      "Source": "Local",
+      "RemoteType": "local",
+      "RemoteUrl": "/usr/lib/R/site-library/blaseRtools",
+      "Hash": "aae061ea0a38fb7b6aaa1f36b143f77e"
     },
     "blob": {
       "Package": "blob",
@@ -807,13 +830,6 @@
       "Repository": "CRAN",
       "Hash": "e9eeef7931ee99ca0093f3f20b88e09b"
     },
-    "dotCall64": {
-      "Package": "dotCall64",
-      "Version": "1.0-1",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "d0ef6cd1546530da4d72179b52856e84"
-    },
     "dplyr": {
       "Package": "dplyr",
       "Version": "1.0.7",
@@ -848,6 +864,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "bb0eec2fe32e88d9e2836c2f73ea2077"
+    },
+    "etrunct": {
+      "Package": "etrunct",
+      "Version": "0.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "d1cdcd7d3ee4de411b7a29877a5e322a"
     },
     "evaluate": {
       "Package": "evaluate",
@@ -903,12 +926,13 @@
       "Repository": "CRAN",
       "Hash": "dabc225759a2c2b241e60e42bf0e8e54"
     },
-    "fields": {
-      "Package": "fields",
-      "Version": "13.3",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "fb9e1353a33d1a5e7b6648b33b838538"
+    "fgsea": {
+      "Package": "fgsea",
+      "Version": "1.20.0",
+      "Source": "Local",
+      "RemoteType": "local",
+      "RemoteUrl": "/usr/lib/R/site-library/fgsea",
+      "Hash": "6ed28ee62422bef1a4892adadba98a8e"
     },
     "fitdistrplus": {
       "Package": "fitdistrplus",
@@ -1007,6 +1031,22 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "465ccb84427f5fe2c54f8620666db131"
+    },
+    "genefilter": {
+      "Package": "genefilter",
+      "Version": "1.76.0",
+      "Source": "Local",
+      "RemoteType": "local",
+      "RemoteUrl": "/usr/lib/R/site-library/genefilter",
+      "Hash": "47765d73582d004d1cfd4b6348ef9927"
+    },
+    "geneplotter": {
+      "Package": "geneplotter",
+      "Version": "1.72.0",
+      "Source": "Local",
+      "RemoteType": "local",
+      "RemoteUrl": "/usr/lib/R/site-library/geneplotter",
+      "Hash": "29beae4334e4bd35272b3d653d310d8d"
     },
     "generics": {
       "Package": "generics",
@@ -1301,6 +1341,13 @@
       "Repository": "CRAN",
       "Hash": "6154ec2223172bce8162d4153cda21f7"
     },
+    "invgamma": {
+      "Package": "invgamma",
+      "Version": "1.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "d124cd1623454d8aeaaec5d67cf1d146"
+    },
     "ipred": {
       "Package": "ipred",
       "Version": "0.9-12",
@@ -1452,6 +1499,13 @@
       "Repository": "CRAN",
       "Hash": "d27e947989c8defe2febcd74d40ab71b"
     },
+    "locfit": {
+      "Package": "locfit",
+      "Version": "1.5-9.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "760b5b542e8435237d1b3c253bfe18e7"
+    },
     "lsa": {
       "Package": "lsa",
       "Version": "0.73.2",
@@ -1472,13 +1526,6 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "41287f1ac7d28a92f0a286ed507928d3"
-    },
-    "maps": {
-      "Package": "maps",
-      "Version": "3.4.0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "b3d98a967ec17c80f795719529812fa0"
     },
     "maptools": {
       "Package": "maptools",
@@ -1528,6 +1575,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "eaee7d2a6f3ed4491df868611cb064cc"
+    },
+    "mixsqp": {
+      "Package": "mixsqp",
+      "Version": "0.3-43",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "e1b117daee4dfaebad99ab9a4606dd5d"
     },
     "modelr": {
       "Package": "modelr",
@@ -2062,13 +2116,6 @@
       "Repository": "CRAN",
       "Hash": "5d68152962bb57448336effdcf598d0a"
     },
-    "spam": {
-      "Package": "spam",
-      "Version": "2.7-0",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "1abde1bf414425ea288fd9e277d6e410"
-    },
     "sparseMatrixStats": {
       "Package": "sparseMatrixStats",
       "Version": "1.6.0",
@@ -2234,6 +2281,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "754d9ed7b25a790451f5da1a62fc7d04"
+    },
+    "truncnorm": {
+      "Package": "truncnorm",
+      "Version": "1.0-8",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "cc8b5bfa01c930ccb56d3051e515fbd8"
     },
     "tweenr": {
       "Package": "tweenr",

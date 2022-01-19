@@ -1,14 +1,10 @@
-# fix the levels for plotting
-colData(cds_human_pass_sf)$treatment <- factor(colData(cds_human_pass_sf)$treatment, levels = c("Untreated", "PRMT5i"))
-
-analysis_configs %>% View()
-
-bb_cellmeta(cds_human_pass_sf)
-
 # UMAPs
 bb_var_umap(cds_human_pass_sf, "sample")
 bb_var_umap(cds_human_pass_sf, "orig_id", facet_by = "value")
-bb_var_umap(cds_human_pass_sf, "density", facet_by = "treatment")
+
+treatment_density_umap <- bb_var_umap(cds_human_pass_sf, "density", facet_by = "treatment")
+save_plot(treatment_density_umap, filename = str_glue("{figs_out}/treatment_density_umap.png"), base_width = 6.5, base_height = 3.5)
+
 bb_var_umap(cds_human_pass_sf, "clonotype")
 bb_var_umap(cds_human_pass_sf, "partition")
 bb_var_umap(cds_human_pass_sf, "treatment")
@@ -84,6 +80,8 @@ geneset_plots$VANASSE_BCL2_TARGETS_UP
 bb_gene_umap(cds_human_pass_sf, gene_or_genes = bb_rowmeta(cds_human_pass_sf) %>% select(id, module))
 
 bb_gene_umap(cds_human_pass_sf, gene_or_genes = "MTOR")
+bb_gene_umap(cds_human_pass_sf, gene_or_genes = "MTOR") + scale_color_viridis_c()
+bb_gene_umap(cds_human_pass_sf, gene_or_genes = "MIR34AHG") + scale_color_viridis_c()
 
 # cluster representataion
 analysis_configs
@@ -116,3 +114,19 @@ bb_cluster_representation(
   control_class = "Untreated",
   return_value = "table"
 )
+bb_cluster_representation(
+  cds = cds_human_pass_sf,
+  cluster_var = "leiden_3_binary",
+  class_var = "treatment",
+  experimental_class = "PRMT5i",
+  control_class = "Untreated",
+  return_value = "plot"
+)
+
+
+bb_cellmeta(cds_human_pass_sf) %>%
+  group_by(sample, leiden_3_binary) %>%
+  summarise(n = n()) %>%
+  pivot_wider(names_from = "leiden_3_binary", values_from = "n") %>%
+  mutate(ratio = leiden_3/not_leiden_3) %>%
+  mutate(log2ratio = log2(ratio))
