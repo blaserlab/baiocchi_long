@@ -130,3 +130,79 @@ bb_cellmeta(cds_human_pass_sf) %>%
   pivot_wider(names_from = "leiden_3_binary", values_from = "n") %>%
   mutate(ratio = leiden_3/not_leiden_3) %>%
   mutate(log2ratio = log2(ratio))
+
+# plotting bulk RNA seq gene lists
+# You can access the whole result table by running bulk_rnaseq_res
+# You can filter as I do below to get the gene lists that you want.
+#  I use padj to make it more or less specific
+# Run this to see the comparisons you can pull from
+
+bulk_rnaseq_res %>%
+  group_by(Comparison) %>%
+  summarise()
+
+# resistant vs naive
+res_vs_naive_up <- bulk_rnaseq_res %>%
+  filter(Comparison == "DESeq2:PDX_MV:Type_PRMT5i.Resistant_vs_PRMT5i.Naive") %>%
+  filter(padj < 0.0001) %>%
+  filter(log2FoldChange > 0)
+
+res_vs_naive_dn <- bulk_rnaseq_res %>%
+  filter(Comparison == "DESeq2:PDX_MV:Type_PRMT5i.Resistant_vs_PRMT5i.Naive") %>%
+  filter(padj < 0.0001) %>%
+  filter(log2FoldChange < 0)
+
+bb_gene_umap(cds_human_pass_sf,
+             gene_or_genes = bind_rows(bb_rowmeta(cds_human_pass_sf) %>%
+               filter(gene_short_name %in% res_vs_naive_up$Gene) %>%
+               select(feature_id) %>%
+               mutate(gene_grouping = "Bulk RNAseq Up In Resistant"),
+               bb_rowmeta(cds_human_pass_sf) %>%
+                 filter(gene_short_name %in% res_vs_naive_dn$Gene) %>%
+                 select(feature_id) %>%
+                 mutate(gene_grouping = "Bulk RNAseq Up In Naive"))) +
+  scale_color_viridis_c()
+
+# resistant vs sensitive
+res_vs_sens_up <- bulk_rnaseq_res %>%
+  filter(Comparison == "DESeq2:PDX_MV2:Type_PRMT5i.Resistant_vs_PRMT5i.Sensitive") %>%
+  filter(padj < 0.0001) %>%
+  filter(log2FoldChange > 0)
+
+res_vs_sens_dn <- bulk_rnaseq_res %>%
+  filter(Comparison == "DESeq2:PDX_MV2:Type_PRMT5i.Resistant_vs_PRMT5i.Sensitive") %>%
+  filter(padj < 0.0001) %>%
+  filter(log2FoldChange < 0)
+
+bb_gene_umap(cds_human_pass_sf,
+             gene_or_genes = bind_rows(bb_rowmeta(cds_human_pass_sf) %>%
+               filter(gene_short_name %in% res_vs_sens_up$Gene) %>%
+               select(feature_id) %>%
+               mutate(gene_grouping = "Bulk RNAseq Up In Resistant"),
+               bb_rowmeta(cds_human_pass_sf) %>%
+                 filter(gene_short_name %in% res_vs_sens_dn$Gene) %>%
+                 select(feature_id) %>%
+                 mutate(gene_grouping = "Bulk RNAseq Up In Sensitive"))) +
+  scale_color_viridis_c()
+
+# sensitive vs naive
+sens_vs_naive_up <- bulk_rnaseq_res %>%
+  filter(Comparison == "DESeq2:PDX_MV:Type_PRMT5i.Sensitive_vs_PRMT5i.Naive") %>%
+  filter(padj < 0.0001) %>%
+  filter(log2FoldChange > 0)
+
+sens_vs_naive_dn <- bulk_rnaseq_res %>%
+  filter(Comparison == "DESeq2:PDX_MV:Type_PRMT5i.Sensitive_vs_PRMT5i.Naive") %>%
+  filter(padj < 0.0001) %>%
+  filter(log2FoldChange < 0)
+
+bb_gene_umap(cds_human_pass_sf,
+             gene_or_genes = bind_rows(bb_rowmeta(cds_human_pass_sf) %>%
+               filter(gene_short_name %in% sens_vs_naive_up$Gene) %>%
+               select(feature_id) %>%
+               mutate(gene_grouping = "Bulk RNAseq Up In Sensitive"),
+               bb_rowmeta(cds_human_pass_sf) %>%
+                 filter(gene_short_name %in% sens_vs_naive_dn$Gene) %>%
+                 select(feature_id) %>%
+                 mutate(gene_grouping = "Bulk RNAseq Up In Naive"))) +
+  scale_color_viridis_c()

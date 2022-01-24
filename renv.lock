@@ -565,11 +565,11 @@
     },
     "blaseRtools": {
       "Package": "blaseRtools",
-      "Version": "0.0.0.9051",
+      "Version": "0.0.0.9052",
       "Source": "Local",
       "RemoteType": "local",
       "RemoteUrl": "/usr/lib/R/site-library/blaseRtools",
-      "Hash": "aae061ea0a38fb7b6aaa1f36b143f77e"
+      "Hash": "afdc71d643339aa7e897ed58ce6e7641"
     },
     "blob": {
       "Package": "blob",
@@ -925,14 +925,6 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "dabc225759a2c2b241e60e42bf0e8e54"
-    },
-    "fgsea": {
-      "Package": "fgsea",
-      "Version": "1.20.0",
-      "Source": "Local",
-      "RemoteType": "local",
-      "RemoteUrl": "/usr/lib/R/site-library/fgsea",
-      "Hash": "6ed28ee62422bef1a4892adadba98a8e"
     },
     "fitdistrplus": {
       "Package": "fitdistrplus",
