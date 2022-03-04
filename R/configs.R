@@ -25,10 +25,11 @@ summarybox_geom <- "crossbar"
 heatmap_3_colors <- c("#313695","white","#A50026")
 
 # unmask
-filter <- dplyr::filter
-select <- dplyr::select
-rename <- dplyr::rename
-count <- dplyr::count
+conflict_prefer("filter", "dplyr")
+conflict_prefer("select", "dplyr")
+conflict_prefer("rename", "dplyr")
+conflict_prefer("count", "dplyr")
+
 
 # output directories
 figs_out <- "~/network/X/Labs/Blaser/collaborators/baiocchi_long_manuscript/figs/R_output"

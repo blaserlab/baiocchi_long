@@ -206,3 +206,8 @@ bb_gene_umap(cds_human_pass_sf,
                  select(feature_id) %>%
                  mutate(gene_grouping = "Bulk RNAseq Up In Naive"))) +
   scale_color_viridis_c()
+bb_cellmeta(cds_human_pass_sf) |> glimpse()
+
+colData(cds_human_pass_sf)$treatment_time <- factor(colData(cds_human_pass_sf)$treatment_time, levels = c("Untreated", "short_term_treated", "long_term_treated"))
+
+bb_var_umap(cds_human_pass_sf, "density", facet_by = "treatment_time", sample_equally = F)
