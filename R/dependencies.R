@@ -1,14 +1,31 @@
+# renv --------------------------------------------------------------------
 
-# set up the renv and repair with snapshot if needed
-# renv::init()
+# set up the renv from scratch
 
-# renv::snapshot()
+# renv::init(bioconductor = TRUE)
 
-# blaseRtools and additional dependencies you may have to install since they are not recognized by renv::init
-# renv::install("/usr/lib/R/site-library/blaseRtools")
-# renv::install("conflicted")
+# restore the renv from the lockfile
 
-# load core packages for the analysis
+# renv::restore()
+
+
+
+# package installation ----------------------------------------------------
+
+# # Try this first...it's faster:
+# blaseRtemplates::easy_install("<package name>", how = "link_from_cache")
+
+# # If you need a new package or an update, try this:
+# blaseRtemplates::easy_install("<package name>", how = "new_or_update")
+
+# # If you are installing from a "tarball", use this:
+# blaseRtemplates::easy_install("/path/to/tarball.tar.gz")
+
+# # use "bioc::<package name>" for bioconductor packages
+# # use "<repo/package name>" for github source packages
+
+# load core packages for the analysis -------------------------------------
+suppressPackageStartupMessages(library("conflicted"))
 suppressPackageStartupMessages(library("blaseRtools"))
 suppressPackageStartupMessages(library("blaseRdata"))
 suppressPackageStartupMessages(library("tidyverse"))
@@ -21,7 +38,6 @@ suppressPackageStartupMessages(library("RColorBrewer"))
 suppressPackageStartupMessages(library("ggrepel"))
 suppressPackageStartupMessages(library("ggpubr"))
 suppressPackageStartupMessages(library("rstatix"))
-suppressPackageStartupMessages(library("conflicted"))
 
 bb_renv_datapkg(path = "~/network/X/Labs/Blaser/collaborators/baiocchi_long_manuscript/datapkg")
 
