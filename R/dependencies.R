@@ -6,7 +6,7 @@
 
 # restore the renv from the lockfile
 
-# renv::restore()
+# renv::restore(clean = TRUE)
 
 
 
@@ -40,7 +40,7 @@ suppressPackageStartupMessages(library("ggpubr"))
 suppressPackageStartupMessages(library("rstatix"))
 
 bb_renv_datapkg(path = "~/network/X/Labs/Blaser/collaborators/baiocchi_long_manuscript/datapkg")
-
+blaseRtemplates:::sync_cache()
 
 # use this to load the data package-------------------------------------
 lazyData::requireData("baiocchi.long.datapkg")
