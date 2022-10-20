@@ -97,29 +97,29 @@ colData(cds_human_pass_sf)$treatment_time <-
   )
 
 bb_cluster_representation(
-  cds = cds_human_pass_sf[,colData(cds_human_pass_sf)$treatment_time %in% c("short_term_treated", "Untreated")],
-  cluster_var = "partition",
+  cds = cds_human_pass_sf[,colData(cds_human_pass_sf)$treatment_time %in% c("long_term_treated", "short_term_treated")],
+  cluster_var = "leiden",
   class_var = "treatment_time",
-  experimental_class = "short_term_treated",
-  control_class = "Untreated",
+  experimental_class = "long_term_treated",
+  control_class = "short_term_treated",
   return_value = "table"
 )
 
 
 bb_cluster_representation(
-  cds = cds_human_pass_sf[,colData(cds_human_pass_sf)$treatment_time %in% c("long_term_treated", "Untreated")],
+  cds = cds_human_pass_sf[,colData(cds_human_pass_sf)$treatment_time %in% c("long_term_treated", "short_term_treated")],
   cluster_var = "partition",
   class_var = "treatment_time",
   experimental_class = "long_term_treated",
-  control_class = "Untreated",
+  control_class = "short_term_treated",
   return_value = "table"
 )
 bb_cluster_representation(
   cds = cds_human_pass_sf,
-  cluster_var = "leiden_3_binary",
-  class_var = "treatment",
-  experimental_class = "PRMT5i",
-  control_class = "Untreated",
+  cluster_var = "leiden",
+  class_var = "treatment_time",
+  experimental_class = "long_term_treated",
+  control_class = "short_term_treated",
   return_value = "plot"
 )
 

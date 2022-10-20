@@ -1,5 +1,5 @@
 # graphical parameters####
-theme_font_size <- 14
+theme_font_size <- 24
 theme_set(theme_cowplot(font_size = theme_font_size))
 
 
