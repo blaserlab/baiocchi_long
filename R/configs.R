@@ -1,5 +1,5 @@
 # graphical parameters####
-theme_font_size <- 24
+theme_font_size <- 10
 theme_set(theme_cowplot(font_size = theme_font_size))
 
 
@@ -29,11 +29,12 @@ conflict_prefer("filter", "dplyr")
 conflict_prefer("select", "dplyr")
 conflict_prefer("rename", "dplyr")
 conflict_prefer("count", "dplyr")
+conflict_prefer("desc", "dplyr")
 
 
 # output directories
-figs_out <- "~/network/X/Labs/Blaser/collaborators/baiocchi_long_manuscript/figs/R_output"
-tables_out <- "~/network/X/Labs/Blaser/collaborators/baiocchi_long_manuscript/tables"
+figs_out <- "~/network/X/Labs/Blaser/share/collaborators/baiocchi_long_manuscript/figs/R_output"
+tables_out <- "~/network/X/Labs/Blaser/share/collaborators/baiocchi_long_manuscript/tables"
 
 # source local configs ----------------------------------------------------
 # these are sourced after main configs and will overwrite duplicate entries if
