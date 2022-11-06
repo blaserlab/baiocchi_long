@@ -5,6 +5,9 @@ theme_set(theme_cowplot(font_size = theme_font_size))
 
 # show_col(pal_npg("nrc")(10))
 experimental_group_palette <- brewer.pal(n = 8, name = "Set1")
+
+plot_grid(NULL)
+
 # names(experimental_group_palette) <- analysis_configs$sample
 
 jitter_alpha_fill <- 0.2
