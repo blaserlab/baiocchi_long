@@ -3,7 +3,6 @@ bb_var_umap(cds_human_pass_sf, "sample")
 bb_var_umap(cds_human_pass_sf, "orig_id", facet_by = "value")
 
 treatment_density_umap <- bb_var_umap(cds_human_pass_sf, "density", facet_by = "treatment")
-save_plot(treatment_density_umap, filename = str_glue("{figs_out}/treatment_density_umap.png"), base_width = 6.5, base_height = 3.5)
 
 bb_var_umap(cds_human_pass_sf, "clonotype")
 bb_var_umap(cds_human_pass_sf, "partition")

@@ -20,6 +20,15 @@ density_umap_faceted <- bb_var_umap(cds_human_pass_sf,
                                     sample_equally = F) +
   labs(color = "Cell\nDensity")
 
+
+
+plot(density_umap_faceted)
+
+cowplot::save_plot(plot = density_umap_faceted,
+                   filename = fs::path(figs_out, "density_umap_faceted", ext = "tiff"),
+                   base_width = 8,
+                   base_height = 2.75)
+
 # umap showing leiden clusters colored by enrichment ---------------------------
 # calculate the enrichment
 leiden_long_short_enrichment_tbl <- bb_cluster_representation(
@@ -46,6 +55,13 @@ leiden_enrichment_umap <- bb_var_umap(cds_human_pass_sf,
   labs(fill = "Log<sub>2</sub> Fold<br>Enrichment") +
   theme(legend.title = ggtext::element_markdown())
 
+plot(leiden_enrichment_umap)
+
+cowplot::save_plot(plot = leiden_enrichment_umap,
+                   filename = fs::path(figs_out, "leiden_enrichment_umap", ext = "tiff"),
+                   base_width = 3.5,
+                   base_height = 3.25)
+
 leiden_enrichment_barplot <- ggplot(leiden_long_short_enrichment_tbl,
        mapping = aes(x = reorder(leiden, desc(log2fold_change_over_control)),
                      y = log2fold_change_over_control,
@@ -58,7 +74,12 @@ leiden_enrichment_barplot <- ggplot(leiden_long_short_enrichment_tbl,
   geom_text(mapping = aes(y = texty, label = p.signif), size = 3, show.legend = F, vjust = -0.5) +
   expand_limits(y = 6)
 
+plot(leiden_enrichment_barplot)
 
+cowplot::save_plot(plot = leiden_enrichment_barplot,
+                   filename = fs::path(figs_out, "leiden_enrichment_barplot", ext = "tiff"),
+                   base_width = 3.7,
+                   base_height = 1.5)
 # gene set heat map -----------------------------------------------
 
 agg_mat_list <- map(
@@ -117,3 +138,7 @@ pathway_heatmap <- grid.grabExpr(draw(
 
 plot_grid(pathway_heatmap)
 
+cowplot::save_plot(plot = pathway_heatmap,
+                   filename = fs::path(figs_out, "pathway_heatmap", ext = "tiff"),
+                   base_width = 4,
+                   base_height = 1.75)
