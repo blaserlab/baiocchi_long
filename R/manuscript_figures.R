@@ -48,7 +48,7 @@ leiden_long_short_enrichment <- leiden_long_short_enrichment_tbl |>
 colData(cds_human_pass_sf)$leiden_long_short_enrichment <- recode(colData(cds_human_pass_sf)$leiden, !!!leiden_long_short_enrichment)
 
 leiden_enrichment_umap <- bb_var_umap(cds_human_pass_sf,
-            "leiden_long_short_enrichment",
+            "leiden",
             alt_label_col = "leiden",
             overwrite_labels = T, text_geom = "label") +
   theme(legend.position = "right") +
@@ -58,7 +58,7 @@ leiden_enrichment_umap <- bb_var_umap(cds_human_pass_sf,
 plot(leiden_enrichment_umap)
 
 cowplot::save_plot(plot = leiden_enrichment_umap,
-                   filename = fs::path(figs_out, "leiden_enrichment_umap", ext = "tiff"),
+                   filename = fs::path(figs_out, "leiden_umap", ext = "tiff"),
                    base_width = 3.5,
                    base_height = 3.25)
 
@@ -69,17 +69,17 @@ leiden_enrichment_barplot <- ggplot(leiden_long_short_enrichment_tbl,
   geom_col(color = "black") +
   scale_fill_viridis_c() +
   theme(legend.position = "none") +
-  labs(x = "Leiden Cluster", y = "Log<sub>2</sub> Fold Enrichment") +
+  labs(x = "Leiden Cluster", y = "Log<sub>2</sub> Fold Enrichment Long vs. Short-term Treatment") +
   theme(axis.title.y = ggtext::element_markdown()) +
-  geom_text(mapping = aes(y = texty, label = p.signif), size = 3, show.legend = F, vjust = -0.5) +
+  geom_text(mapping = aes(y = texty, label = p.signif), size = 10, show.legend = F, vjust = -0.5) +
   expand_limits(y = 6)
 
 plot(leiden_enrichment_barplot)
 
 cowplot::save_plot(plot = leiden_enrichment_barplot,
                    filename = fs::path(figs_out, "leiden_enrichment_barplot", ext = "tiff"),
-                   base_width = 3.7,
-                   base_height = 1.5)
+                   base_width = 15,
+                   base_height = 10)
 # gene set heat map -----------------------------------------------
 
 agg_mat_list <- map(
