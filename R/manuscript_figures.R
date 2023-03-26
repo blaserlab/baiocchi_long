@@ -2,17 +2,17 @@
 colData(cds_human_pass_sf)$treatment_time <-
   recode(
     colData(cds_human_pass_sf)$orig_id,
-    "P5" = "Untreated",
-    "P61" = "Long term treated",
-    "P10" = "Short term treated",
-    "P53" = "Long term treated",
-    "P6_8_SP_VC_SURV" = "Untreated",
-    "P6_21_SP_VC" = "Untreated"
+    "P5" = "Vehicle",
+    "P61" = "Resistant PRMT5i",
+    "P10" = "Short-term PRMT5i",
+    "P53" = "Resistant PRMT5i",
+    "P6_8_SP_VC_SURV" = "Vehicle",
+    "P6_21_SP_VC" = "Vehicle"
   )
 
 colData(cds_human_pass_sf)$treatment_time <-
   factor(colData(cds_human_pass_sf)$treatment_time,
-         levels = c("Untreated", "Short term treated", "Long term treated"))
+         levels = c("Vehicle", "Short-term PRMT5i", "Resistant PRMT5i"))
 
 density_umap_faceted <- bb_var_umap(cds_human_pass_sf,
                                     "density",
@@ -26,17 +26,17 @@ plot(density_umap_faceted)
 
 cowplot::save_plot(plot = density_umap_faceted,
                    filename = fs::path(figs_out, "density_umap_faceted", ext = "tiff"),
-                   base_width = 8,
-                   base_height = 2.75)
+                   base_width = 10,
+                   base_height = 4)
 
 # umap showing leiden clusters colored by enrichment ---------------------------
 # calculate the enrichment
 leiden_long_short_enrichment_tbl <- bb_cluster_representation(
-  cds = cds_human_pass_sf[,colData(cds_human_pass_sf)$treatment_time %in% c("Long term treated", "Short term treated")],
+  cds = cds_human_pass_sf[,colData(cds_human_pass_sf)$treatment_time %in% c("Resistant PRMT5i", "Short-term PRMT5i")],
   cluster_var = "leiden",
   class_var = "treatment_time",
-  experimental_class = "Long term treated",
-  control_class = "Short term treated",
+  experimental_class = "Resistant PRMT5i",
+  control_class = "Short-term PRMT5i",
   return_value = "table"
 )
 
@@ -51,7 +51,6 @@ leiden_enrichment_umap <- bb_var_umap(cds_human_pass_sf,
             "leiden",
             alt_label_col = "leiden",
             overwrite_labels = T, text_geom = "label") +
-  theme(legend.position = "right") +
   labs(fill = "Log<sub>2</sub> Fold<br>Enrichment") +
   theme(legend.title = ggtext::element_markdown())
 
@@ -69,7 +68,7 @@ leiden_enrichment_barplot <- ggplot(leiden_long_short_enrichment_tbl,
   geom_col(color = "black") +
   scale_fill_viridis_c() +
   theme(legend.position = "none") +
-  labs(x = "Leiden Cluster", y = "Log<sub>2</sub> Fold Enrichment Long vs. Short-term Treatment") +
+  labs(x = "Leiden Cluster", y = "Log<sub>2</sub> Fold Resistant vs. Short-term PRMT5i") +
   theme(axis.title.y = ggtext::element_markdown()) +
   geom_text(mapping = aes(y = texty, label = p.signif), size = 10, show.legend = F, vjust = -0.5) +
   expand_limits(y = 6)
