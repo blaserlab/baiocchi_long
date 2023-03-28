@@ -79,6 +79,7 @@ geneset_plots$VANASSE_BCL2_TARGETS_UP
 bb_gene_umap(cds_human_pass_sf, gene_or_genes = bb_rowmeta(cds_human_pass_sf) %>% select(id, module))
 
 bb_gene_umap(cds_human_pass_sf, gene_or_genes = "MTOR")
+bb_gene_dotplot(cds_human_pass_sf[,colData(cds_human_pass_sf)$leiden %in% c("3","13","2","6")], markers = c("MTOR"), group_cells_by = "leiden")
 bb_gene_umap(cds_human_pass_sf, gene_or_genes = "MTOR") + scale_color_viridis_c()
 bb_gene_umap(cds_human_pass_sf, gene_or_genes = "MIR34AHG") + scale_color_viridis_c()
 

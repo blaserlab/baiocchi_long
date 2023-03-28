@@ -141,3 +141,9 @@ cowplot::save_plot(plot = pathway_heatmap,
                    filename = fs::path(figs_out, "pathway_heatmap", ext = "tiff"),
                    base_width = 4,
                    base_height = 1.75)
+
+#subfigure_mtor_upregulation_clusters
+
+bb_gene_umap(cds_human_pass_sf, gene_or_genes = "MTOR")
+
+bb_gene_dotplot(cds_human_pass_sf[,colData(cds_human_pass_sf)$leiden %in% c("3","13","2","6")], markers = c("MTOR"), group_cells_by = "leiden")
