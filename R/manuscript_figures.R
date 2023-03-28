@@ -86,7 +86,7 @@ agg_mat_list <- map(
     "mtor",
     "IGF1_signaling",
     "eif4_p70S6k",
-    "ER_signaling"
+    "pi3k_akt", "ERK_MAPK_signaling"
 
   ),
   .f = \(x, dat = cds_human_pass_sf) {
