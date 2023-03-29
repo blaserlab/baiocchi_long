@@ -20,6 +20,14 @@ bb_gene_umap(cds_human_pass_sf,
 bb_gene_umap(cds_human_pass_sf,
              bb_rowmeta(cds_human_pass_sf) |>
                filter(ERK_MAPK_signaling) |>
-               mutate(label = "MEK/ERK Signaling") |>
-               select(feature_id, label), max_expr_val = 3.5)
+               mutate(label = "ERK_MAPK") |>
+               select(feature_id, label), max_expr_val = 3
+             )
 
+
+bb_gene_umap(cds_human_pass_sf,
+             bb_rowmeta(cds_human_pass_sf) |>
+               filter(pi3k_akt) |>
+               mutate(label = "PI3K_AKT") |>
+               select(feature_id, label), max_expr_val = 6
+)
