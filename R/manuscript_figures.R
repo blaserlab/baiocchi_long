@@ -128,6 +128,7 @@ pathway_heatmap <- grid.grabExpr(draw(
     row_names_gp = gpar(fontsize = 9),
     column_names_gp = gpar(fontsize = 9),
     # right_annotation = heatmap_rowanno,
+    row_title = "Pathway",
     col = heatmap_colfun,
     heatmap_legend_param = list(
       direction = "horizontal",

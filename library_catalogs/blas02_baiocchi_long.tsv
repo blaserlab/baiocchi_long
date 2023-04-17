@@ -275,7 +275,7 @@ R_version	name	version	date_time	hash	binary_location	status
 4.2.0	dygraphs	1.1.1.6	2022-09-06T22:22:37Z	18353cf3c831333aee3732b83020e1f3	/workspace/rst/cache_R_4_2/library/dygraphs/1.1.1.6/18353cf3c831333aee3732b83020e1f3/dygraphs	available
 4.2.0	dynamicTreeCut	1.63.1	2022-09-06T21:48:32Z	cc598b27161a174da456bd49170111bd	/workspace/rst/cache_R_4_2/library/dynamicTreeCut/1.63-1/cc598b27161a174da456bd49170111bd/dynamicTreeCut	available
 4.2.0	e1071	1.7.12	2022-11-01T16:39:59Z	cfa275542502caf66e1e5d180994cc4c	/workspace/rst/cache_R_4_2/library/e1071/1.7-12/cfa275542502caf66e1e5d180994cc4c/e1071	available
-4.2.0	edgeR	3.38.4	2022-09-06T19:24:58Z	778223abc650608238ea63b743d2d096	/workspace/rst/cache_R_4_2/library/edgeR/3.38.4/778223abc650608238ea63b743d2d096/edgeR	available
+4.2.0	edgeR	3.38.4	2022-09-06T19:24:58Z	778223abc650608238ea63b743d2d096	/workspace/rst/cache_R_4_2/library/edgeR/3.38.4/778223abc650608238ea63b743d2d096/edgeR	active
 4.2.0	egg	0.4.5	2022-09-06T21:48:32Z	b272219f24587779a9a4be2467b0be39	/workspace/rst/cache_R_4_2/library/egg/0.4.5/b272219f24587779a9a4be2467b0be39/egg	available
 4.2.0	ellipse	0.4.3	2022-09-06T22:22:50Z	a6f6ea52581cdb28c0abbac093111e9f	/workspace/rst/cache_R_4_2/library/ellipse/0.4.3/a6f6ea52581cdb28c0abbac093111e9f/ellipse	available
 4.2.0	ellipsis	0.3.2	2022-09-07T18:49:26Z	96682f6ea79c6dd775d98911135dec47	/workspace/rst/cache_R_4_2/library/ellipsis/0.3.2/96682f6ea79c6dd775d98911135dec47/ellipsis	available
