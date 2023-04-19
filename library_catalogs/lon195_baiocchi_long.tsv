@@ -178,7 +178,7 @@ R_version	name	version	date_time	hash	binary_location	status
 4.2.0	aws.s3	0.3.21	2022-09-06T21:51:15Z	2bb6a6ca8942aa317508b4ed72a87484	/workspace/rst/cache_R_4_2/library/aws.s3/0.3.21/2bb6a6ca8942aa317508b4ed72a87484/aws.s3	available
 4.2.0	aws.signature	0.6.0	2022-09-06T21:51:15Z	3e282eaa4f41a55e073d4ab2a699aa3b	/workspace/rst/cache_R_4_2/library/aws.signature/0.6.0/3e282eaa4f41a55e073d4ab2a699aa3b/aws.signature	available
 4.2.0	backports	1.4.1	2022-09-06T19:25:55Z	bac9b64be160e5508122d8b6f52fee22	/workspace/rst/cache_R_4_2/library/backports/1.4.1/bac9b64be160e5508122d8b6f52fee22/backports	available
-4.2.0	baiocchi.long.datapkg	0.0.0.9010	2022-09-07T01:35:35Z	e34d589938c1a4482cbdca5a000ccc8b	/workspace/rst/cache_R_4_2/library/baiocchi.long.datapkg/0.0.0.9010/e34d589938c1a4482cbdca5a000ccc8b/baiocchi.long.datapkg	available
+4.2.0	baiocchi.long.datapkg	1.0.0	2023-04-09T12:58:31Z	2f1f485bfe458525a2cf5271ae75f922	/workspace/rst/cache_R_4_2/library/baiocchi.long.datapkg/1.0.0/2f1f485bfe458525a2cf5271ae75f922/baiocchi.long.datapkg	available
 4.2.0	base64enc	0.1.3	2022-09-07T18:49:25Z	b2d1a5a93db32cc5ea15ae02d8128232	/workspace/rst/cache_R_4_2/library/base64enc/0.1-3/b2d1a5a93db32cc5ea15ae02d8128232/base64enc	available
 4.2.0	batchelor	1.12.3	2022-09-06T21:52:26Z	692de62f89e87f068abd164108ac4706	/workspace/rst/cache_R_4_2/library/batchelor/1.12.3/692de62f89e87f068abd164108ac4706/batchelor	available
 4.2.0	bayesm	3.1.4	2022-09-06T21:57:30Z	2988d1ade94a08aac95110d4f016c712	/workspace/rst/cache_R_4_2/library/bayesm/3.1-4/2988d1ade94a08aac95110d4f016c712/bayesm	available
@@ -275,7 +275,7 @@ R_version	name	version	date_time	hash	binary_location	status
 4.2.0	dygraphs	1.1.1.6	2022-09-06T22:22:37Z	18353cf3c831333aee3732b83020e1f3	/workspace/rst/cache_R_4_2/library/dygraphs/1.1.1.6/18353cf3c831333aee3732b83020e1f3/dygraphs	available
 4.2.0	dynamicTreeCut	1.63.1	2022-09-06T21:48:32Z	cc598b27161a174da456bd49170111bd	/workspace/rst/cache_R_4_2/library/dynamicTreeCut/1.63-1/cc598b27161a174da456bd49170111bd/dynamicTreeCut	available
 4.2.0	e1071	1.7.12	2022-11-01T16:39:59Z	cfa275542502caf66e1e5d180994cc4c	/workspace/rst/cache_R_4_2/library/e1071/1.7-12/cfa275542502caf66e1e5d180994cc4c/e1071	available
-4.2.0	edgeR	3.38.4	2022-09-06T19:24:58Z	778223abc650608238ea63b743d2d096	/workspace/rst/cache_R_4_2/library/edgeR/3.38.4/778223abc650608238ea63b743d2d096/edgeR	available
+4.2.0	edgeR	3.38.4	2022-09-06T19:24:58Z	778223abc650608238ea63b743d2d096	/workspace/rst/cache_R_4_2/library/edgeR/3.38.4/778223abc650608238ea63b743d2d096/edgeR	active
 4.2.0	egg	0.4.5	2022-09-06T21:48:32Z	b272219f24587779a9a4be2467b0be39	/workspace/rst/cache_R_4_2/library/egg/0.4.5/b272219f24587779a9a4be2467b0be39/egg	available
 4.2.0	ellipse	0.4.3	2022-09-06T22:22:50Z	a6f6ea52581cdb28c0abbac093111e9f	/workspace/rst/cache_R_4_2/library/ellipse/0.4.3/a6f6ea52581cdb28c0abbac093111e9f/ellipse	available
 4.2.0	ellipsis	0.3.2	2022-09-07T18:49:26Z	96682f6ea79c6dd775d98911135dec47	/workspace/rst/cache_R_4_2/library/ellipsis/0.3.2/96682f6ea79c6dd775d98911135dec47/ellipsis	available
