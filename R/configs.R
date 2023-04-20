@@ -5,8 +5,10 @@ theme_set(theme_cowplot(font_size = theme_font_size))
 
 # show_col(pal_npg("nrc")(10))
 experimental_group_palette <- brewer.pal(n = 8, name = "Set1")
-
-plot_grid(NULL)
+experimental_group_palette_1 <- c(
+  "long-term" = "blue4",
+  "short-term/untreated" = "red3"
+)
 
 # names(experimental_group_palette) <- analysis_configs$sample
 

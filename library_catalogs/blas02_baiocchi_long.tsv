@@ -267,7 +267,7 @@ R_version	name	version	date_time	hash	binary_location	status
 4.2.0	dotwhisker	0.7.4	2022-09-06T22:22:05Z	7896c79e03c583fbcfcd3812aed3a5ac	/workspace/rst/cache_R_4_2/library/dotwhisker/0.7.4/7896c79e03c583fbcfcd3812aed3a5ac/dotwhisker	available
 4.2.0	downlit	0.4.2	2022-09-07T18:49:26Z	facf34c2e22bf4ad1f396d8bb8de44b3	/workspace/rst/cache_R_4_2/library/downlit/0.4.2/facf34c2e22bf4ad1f396d8bb8de44b3/downlit	available
 4.2.0	downloader	0.4	2022-09-06T20:23:38Z	9e970c11e4eb586637fbe73b82708e6d	/workspace/rst/cache_R_4_2/library/downloader/0.4/9e970c11e4eb586637fbe73b82708e6d/downloader	available
-4.2.0	dplyr	1.0.10	2022-09-07T18:49:26Z	16fa46471eb409ae291d1f231be2d05a	/workspace/rst/cache_R_4_2/library/dplyr/1.0.10/16fa46471eb409ae291d1f231be2d05a/dplyr	available
+4.2.0	dplyr	1.0.10	2022-09-07T18:49:26Z	16fa46471eb409ae291d1f231be2d05a	/workspace/rst/cache_R_4_2/library/dplyr/1.0.10/16fa46471eb409ae291d1f231be2d05a/dplyr	active
 4.2.0	dqrng	0.3.0	2022-09-06T20:26:53Z	527f14fe809ace57116ae5e34472f4ce	/workspace/rst/cache_R_4_2/library/dqrng/0.3.0/527f14fe809ace57116ae5e34472f4ce/dqrng	available
 4.2.0	drat	0.2.3	2022-09-06T22:22:11Z	7add34d3bf43a90b65ef044ade5862fe	/workspace/rst/cache_R_4_2/library/drat/0.2.3/7add34d3bf43a90b65ef044ade5862fe/drat	available
 4.2.0	dtplyr	1.2.2	2022-09-06T22:09:21Z	ea958ed2845d63bb08d6974c7e13879a	/workspace/rst/cache_R_4_2/library/dtplyr/1.2.2/ea958ed2845d63bb08d6974c7e13879a/dtplyr	available
@@ -709,7 +709,7 @@ R_version	name	version	date_time	hash	binary_location	status
 4.2.0	tictoc	1.1	2022-09-06T22:09:27Z	4896e67ce4c3c0d9e66f4ead3c391a26	/workspace/rst/cache_R_4_2/library/tictoc/1.1/4896e67ce4c3c0d9e66f4ead3c391a26/tictoc	available
 4.2.0	tidygraph	1.2.2	2022-09-06T19:42:21Z	123bd6557d3be36c9ac532be56a398c9	/workspace/rst/cache_R_4_2/library/tidygraph/1.2.2/123bd6557d3be36c9ac532be56a398c9/tidygraph	available
 4.2.0	tidymodels	1.0.0	2022-09-07T00:44:36Z	c4aa6f0f91d8715a484433a3a4177eb1	/workspace/rst/cache_R_4_2/library/tidymodels/1.0.0/c4aa6f0f91d8715a484433a3a4177eb1/tidymodels	available
-4.2.0	tidyr	1.2.1	2022-11-01T16:40:13Z	4eafe29161a430dfc307e3aae2f6ff9d	/workspace/rst/cache_R_4_2/library/tidyr/1.2.1/4eafe29161a430dfc307e3aae2f6ff9d/tidyr	available
+4.2.0	tidyr	1.2.1	2022-11-01T16:40:13Z	4eafe29161a430dfc307e3aae2f6ff9d	/workspace/rst/cache_R_4_2/library/tidyr/1.2.1/4eafe29161a430dfc307e3aae2f6ff9d/tidyr	active
 4.2.0	tidyselect	1.2.0	2022-11-01T16:49:39Z	1cefc171901950a24f61c7fa255b881b	/workspace/rst/cache_R_4_2/library/tidyselect/1.2.0/1cefc171901950a24f61c7fa255b881b/tidyselect	available
 4.2.0	tidytree	0.4.0	2022-09-06T19:42:21Z	a480133f5662251241259a889694cad6	/workspace/rst/cache_R_4_2/library/tidytree/0.4.0/a480133f5662251241259a889694cad6/tidytree	available
 4.2.0	tidyverse	1.3.2	2022-09-06T22:09:27Z	8a515c02b6a97cd8e639b6a881ceba7b	/workspace/rst/cache_R_4_2/library/tidyverse/1.3.2/8a515c02b6a97cd8e639b6a881ceba7b/tidyverse	active
