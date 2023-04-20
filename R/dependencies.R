@@ -12,7 +12,7 @@
 # blaseRtemplates::get_new_library(newest_or_file = "<path/to/file>")
 
 # # Use this to get or update a package from the cache
-# blaseRtemplates::install_one_package("<package_name>", how = "link_from_cache")
+# blaseRtemplates::install_one_package("blaseRtools", how = "link_from_cache")
 
 # # If you need a new package or an update from a repository, try this:
 # blaseRtemplates::install_one_package("blaseRtools", how = "new_or_update")
