@@ -1,19 +1,18 @@
 colData(cds_human_pass_sf)$treatment_1 <- recode(colData(cds_human_pass_sf)$sample,
-                                                 "P1" = "long-term",
-                                                 "P2" = "short-term/untreated",
-                                                 "P3" = "long-term",
-                                                 "U1" = "short-term/untreated",
-                                                 "U2" = "short-term/untreated",
-                                                 "U3" = "short-term/untreated")
+                                                 "P1" = "Resistant PRMT5i",
+                                                 "P2" = "Short-term PRMT5i/Vehicle",
+                                                 "P3" = "Resistant PRMT5i",
+                                                 "U1" = "Short-term PRMT5i/Vehicle",
+                                                 "U2" = "Short-term PRMT5i/Vehicle",
+                                                 "U3" = "Short-term PRMT5i/Vehicle")
 
 colData(cds_human_pass_sf)$treatment_2 <- recode(colData(cds_human_pass_sf)$sample,
-                                                 "P1" = "long-term",
-                                                 "P2" = "short-term",
-                                                 "P3" = "long-term",
-                                                 "U1" = "untreated",
-                                                 "U2" = "untreated",
-                                                 "U3" = "untreated")
-
+                                                 "P1" = "Resistant PRMT5i",
+                                                 "P2" = "Short-term PRMT5i",
+                                                 "P3" = "Resistant PRMT5i",
+                                                 "U1" = "Vehicle",
+                                                 "U2" = "Vehicle",
+                                                 "U3" = "Vehicle")
 # Differential abundance  http://bioconductor.org/books/3.13/OSCA.multisample/differential-abundance.html
 
 # long-term vs short-term AND untreated together
@@ -22,35 +21,35 @@ bb_cluster_representation2(
   sample_var = "sample",
   cluster_var = "leiden",
   comparison_var = "treatment_1",
-  comparison_levels = c("short-term/untreated", "long-term"),
+  comparison_levels = c("Short-term PRMT5i/Vehicle", "Resistant PRMT5i"),
   sig_val = "FDR",
   return_val = "plot" # use "data" to get the table instead of the plot
 )
 
-# long-term vs untreated ONLY.
+# PRMT5i reistant vs untreated ONLY.
 # Short-term treated sample filtered out
 bb_cluster_representation2(
   obj = filter_cds(cds_human_pass_sf,
                    cells = bb_cellmeta(cds_human_pass_sf) |>
-                     filter(treatment_2 %in% c("long-term", "untreated"))),
+                     filter(treatment_2 %in% c("Resistant PRMT5i", "Vehicle"))),
   sample_var = "sample",
   cluster_var = "leiden",
   comparison_var = "treatment_2",
-  comparison_levels = c("untreated", "long-term"),
+  comparison_levels = c("Vehicle", "Resistant PRMT5i"),
   sig_val = "FDR",
   return_val = "plot" # use "data" to get the table instead of the plot
 )
 
-# long-term vs short_term treated ONLY.
+# resistant vs short_term treated ONLY.
 # untreated samples filtered out
 bb_cluster_representation2(
   obj = filter_cds(cds_human_pass_sf,
                    cells = bb_cellmeta(cds_human_pass_sf) |>
-                     filter(treatment_2 %in% c("long-term", "short-term"))),
+                     filter(treatment_2 %in% c("Resistant PRMT5i", "Short-term PRMT5i"))),
   sample_var = "sample",
   cluster_var = "leiden",
   comparison_var = "treatment_2",
-  comparison_levels = c("short-term", "long-term"),
+  comparison_levels = c("Short-term PRMT5i", "Resistant PRMT5i"),
   sig_val = "FDR",
   return_val = "plot" # use "data" to get the table instead of the plot
 )
