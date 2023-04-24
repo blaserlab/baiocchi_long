@@ -54,3 +54,18 @@ bb_cluster_representation2(
   return_val = "plot" # use "data" to get the table instead of the plot
 )
 
+
+# untreated vs short_term treated ONLY.
+# long term resistant samples filtered out
+bb_cluster_representation2(
+  obj = filter_cds(cds_human_pass_sf,
+                   cells = bb_cellmeta(cds_human_pass_sf) |>
+                     filter(treatment_2 %in% c("Vehicle", "Short-term PRMT5i"))),
+  sample_var = "sample",
+  cluster_var = "leiden",
+  comparison_var = "treatment_2",
+  comparison_levels = c("Short-term PRMT5i", "Vehicle"),
+  sig_val = "FDR",
+  return_val = "plot",
+  color_pal = c("Vehicle" = "cyan3", "Short-term PRMT5i" = "magenta3") # use "data" to get the table instead of the plot
+)

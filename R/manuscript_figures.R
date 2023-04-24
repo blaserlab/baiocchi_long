@@ -196,6 +196,7 @@ pathway_heatmap <- grid.grabExpr(draw(
     # right_annotation = heatmap_rowanno,
     row_title = "Pathway",
     column_title = "Leiden Cluster",
+    column_title_side = "bottom",
     col = heatmap_colfun,
     heatmap_legend_param = list(
       direction = "horizontal",
