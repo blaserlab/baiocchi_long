@@ -14,21 +14,21 @@ colData(cds_human_pass_sf)$treatment_time <-
   factor(colData(cds_human_pass_sf)$treatment_time,
          levels = c("Vehicle", "Short-term PRMT5i", "Resistant PRMT5i"))
 
-density_umap_faceted <- bb_var_umap(cds_human_pass_sf,
+Four_A_density_umap_faceted <- bb_var_umap(cds_human_pass_sf,
                                     "density",
                                     facet_by = "treatment_time",
                                     sample_equally = F) +
   labs(color = "Cell\nDensity")
 
 
-plot(density_umap_faceted)
+plot(Four_A_density_umap_faceted)
 
-cowplot::save_plot(plot = density_umap_faceted,
-                   filename = fs::path(figs_out, "density_umap_faceted", ext = "tiff"),
+cowplot::save_plot(plot = Four_A_density_umap_faceted,
+                   filename = fs::path(figs_out, "Four_A_density_umap_faceted", ext = "tiff"),
                    base_width = 10,
                    base_height = 4)
 
-#supplemental fig 4A
+#supplemental fig 4A umap faceted by sample------------------------------------------
 colData(cds_human_pass_sf)$treatment_time <-
   recode(
     colData(cds_human_pass_sf)$orig_id,
@@ -40,43 +40,35 @@ colData(cds_human_pass_sf)$treatment_time <-
     "P6_21_SP_VC" = "Long-term Untreated"
   )
 
-sample_umap_faceted <- bb_var_umap(cds_human_pass_sf, "sample",
+Sup_Four_A_sample_umap_faceted <- bb_var_umap(cds_human_pass_sf, "sample",
              facet_by = c("treatment", "orig_id"), rows = vars(treatment), cols = vars(orig_id))
 
 
 
-plot(sample_umap_faceted)
+plot(Sup_Four_A_sample_umap_faceted)
 
-cowplot::save_plot(plot = sample_umap_faceted,
-                   filename = fs::path(figs_out, "sample_umap_faceted", ext = "tiff"),
+cowplot::save_plot(plot = Sup_Four_A_sample_umap_faceted,
+                   filename = fs::path(figs_out, "Sup_Four_A_sample_umap_faceted", ext = "tiff"),
                    base_width = 10,
                    base_height = 4)
 
 
-# umap showing leiden clusters colored by enrichment ---------------------------
-leiden_enrichment_umap <- bb_var_umap(cds_human_pass_sf,
+# Figure 4B umap showing leiden clusters colored by enrichment ---------------------------
+Four_B_leiden_enrichment_umap <- bb_var_umap(cds_human_pass_sf,
             "leiden",
             alt_label_col = "leiden",
             overwrite_labels = T, text_geom = "label") +
   labs(fill = "Log<sub>2</sub> Fold<br>Enrichment") +
   theme(legend.title = ggtext::element_markdown())
 
-plot(leiden_enrichment_umap)
+plot(Four_B_leiden_enrichment_umap)
 
-cowplot::save_plot(plot = leiden_enrichment_umap,
-                   filename = fs::path(figs_out, "leiden_umap", ext = "tiff"),
+cowplot::save_plot(plot = Four_B_leiden_enrichment_umap,
+                   filename = fs::path(figs_out, "Four_B_leiden_umap", ext = "tiff"),
                    base_width = 3.5,
                    base_height = 3.25)
 
-#figure 4C and supplement
-
-colData(cds_human_pass_sf)$treatment_1 <- recode(colData(cds_human_pass_sf)$sample,
-                                                 "P1" = "Resistant PRMT5i",
-                                                 "P2" = "Short-term PRMT5i/Vehicle",
-                                                 "P3" = "Resistant PRMT5i",
-                                                 "U1" = "Short-term PRMT5i/Vehicle",
-                                                 "U2" = "Short-term PRMT5i/Vehicle",
-                                                 "U3" = "Short-term PRMT5i/Vehicle")
+#Figure 4C Leiden PRMT5i Resistant vs. Short Term Enrichment--------------------------------------------
 
 colData(cds_human_pass_sf)$treatment_2 <- recode(colData(cds_human_pass_sf)$sample,
                                                  "P1" = "Resistant PRMT5i",
@@ -85,29 +77,28 @@ colData(cds_human_pass_sf)$treatment_2 <- recode(colData(cds_human_pass_sf)$samp
                                                  "U1" = "Vehicle",
                                                  "U2" = "Vehicle",
                                                  "U3" = "Vehicle")
-# Differential abundance  http://bioconductor.org/books/3.13/OSCA.multisample/differential-abundance.html
 
-# resistant vs short-term AND untreated together
-leiden_long_short_enrichment <-bb_cluster_representation2(
-  obj = cds_human_pass_sf,
+Four_C_leiden_PRMT5i_Resistant_vs_short_term_enrichment <-bb_cluster_representation2(
+  obj = filter_cds(cds_human_pass_sf,
+                   cells = bb_cellmeta(cds_human_pass_sf) |>
+                     filter(treatment_2 %in% c("Resistant PRMT5i", "Short-term PRMT5i"))),
   sample_var = "sample",
   cluster_var = "leiden",
-  comparison_var = "treatment_1",
-  comparison_levels = c("Short-term PRMT5i/Vehicle", "Resistant PRMT5i"),
+  comparison_var = "treatment_2",
+  comparison_levels = c("Short-term PRMT5i", "Resistant PRMT5i"),
   sig_val = "FDR",
   return_val = "plot" # use "data" to get the table instead of the plot
 )
 
-plot(leiden_long_short_enrichment)
+plot(Four_C_leiden_PRMT5i_Resistant_vs_short_term_enrichment)
 
-cowplot::save_plot(plot = leiden_long_short_enrichment,
-                   filename = fs::path(figs_out, "leiden_long_short_enrichment", ext = "tiff"),
+cowplot::save_plot(plot = Four_C_leiden_PRMT5i_Resistant_vs_short_term_enrichment,
+                   filename = fs::path(figs_out, "Four_C_leiden_PRMT5i_Resistant_vs_short_term_enrichment", ext = "tiff"),
                    base_width = 6,
                    base_height = 4)
 
-# PRMT5i reistant vs untreated ONLY.
-# Short-term treated sample filtered out
-leiden_long_vs_vehicle_enrichment <-bb_cluster_representation2(
+#Supplemental Figure 4B Leiden PRMT5i Resistant vs. Vehicle Enrichment--------------------------------------------
+Sup_Four_B_leiden_PRMT5i_Resistant_vs_vehicle_enrichment <-bb_cluster_representation2(
   obj = filter_cds(cds_human_pass_sf,
                    cells = bb_cellmeta(cds_human_pass_sf) |>
                      filter(treatment_2 %in% c("Resistant PRMT5i", "Vehicle"))),
@@ -120,32 +111,14 @@ leiden_long_vs_vehicle_enrichment <-bb_cluster_representation2(
 )
 
 
-plot(leiden_long_vs_vehicle_enrichment)
+plot(Sup_Four_B_leiden_PRMT5i_Resistant_vs_vehicle_enrichment)
 
-cowplot::save_plot(plot = leiden_long_vs_vehicle_enrichment,
-                   filename = fs::path(figs_out, "leiden_long_vs_vehicle_enrichment", ext = "tiff"),
+cowplot::save_plot(plot = Sup_Four_B_leiden_PRMT5i_Resistant_vs_vehicle_enrichment,
+                   filename = fs::path(figs_out, "Sup_Four_B_leiden_PRMT5i_Resistant_vs_vehicle_enrichment", ext = "tiff"),
                    base_width = 6,
                    base_height = 4)
 
-# resistant vs short_term and vehicle treated.
-leiden_long_vs_short_and_vehicle_enrichment <-bb_cluster_representation2(
-  obj = cds_human_pass_sf,
-  sample_var = "sample",
-  cluster_var = "leiden",
-  comparison_var = "treatment_1",
-  comparison_levels = c("Short-term PRMT5i/Vehicle", "Resistant PRMT5i"),
-  sig_val = "FDR",
-  return_val = "plot" # use "data" to get the table instead of the plot
-)
-
-plot(leiden_long_vs_short_and_vehicle_enrichment)
-
-cowplot::save_plot(plot = leiden_long_vs_short_and_vehicle_enrichment,
-                   filename = fs::path(figs_out, "leiden_long_vs_short_and_vehicle_enrichment", ext = "tiff"),
-                   base_width = 6,
-                   base_height = 4)
-
-# Fig 4D gene set heat map -----------------------------------------------
+# Figure 4D gene set heat map -----------------------------------------------
 
 agg_mat_list <- map(
   .x = c(
@@ -175,16 +148,10 @@ agg_mat <- bind_cols(agg_mat_list) |>
   scale()
 rownames(agg_mat) <- paste0(1:13)
 
-# heatmap_rowanno_df <- bb_cellmeta(cds_human_pass_sf) |>
-#   group_by(leiden, partition) |>
-#   summarise() |>
-#   mutate(leiden = paste0("leiden ", leiden)) |>
-#   column_to_rownames("leiden")
-
 heatmap_colfun <-
   circlize::colorRamp2(breaks =  c(min(agg_mat), 0, max(agg_mat)), colors = heatmap_3_colors)
 
-pathway_heatmap <- grid.grabExpr(draw(
+Four_D_pathway_heatmap <- grid.grabExpr(draw(
   Heatmap(
     t(agg_mat),
     name = "Pathway\nExpression",
@@ -204,23 +171,23 @@ pathway_heatmap <- grid.grabExpr(draw(
   ), heatmap_legend_side = "bottom"
 ), wrap = T)
 
-plot_grid(pathway_heatmap)
+plot_grid(Four_D_pathway_heatmap)
 
-cowplot::save_plot(plot = pathway_heatmap,
-                   filename = fs::path(figs_out, "pathway_heatmap", ext = "tiff"),
-                   base_width = 6,
+cowplot::save_plot(plot = Four_D_pathway_heatmap,
+                   filename = fs::path(figs_out, "Four_D_pathway_heatmap", ext = "tiff"),
+                   base_width = 4,
                    base_height = 2)
 
 
 #Fig 4E _mtor_upregulation_clusters
 
-mtor_umap <- bb_gene_umap(cds_human_pass_sf, gene_or_genes = "MTOR")
+Four_E_mtor_umap <- bb_gene_umap(cds_human_pass_sf, gene_or_genes = "MTOR")
 
 
-plot_grid(mtor_umap)
+plot_grid(Four_E_mtor_umap)
 
-cowplot::save_plot(plot = mtor_umap,
-                   filename = fs::path(figs_out, "mtor_umap", ext = "tiff"),
+cowplot::save_plot(plot = Four_E_mtor_umap,
+                   filename = fs::path(figs_out, "Four_E_mtor_umap", ext = "tiff"),
                    base_width = 6,
                    base_height = 4)
 
