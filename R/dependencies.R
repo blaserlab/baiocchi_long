@@ -39,8 +39,12 @@ suppressPackageStartupMessages(library("ggpubr"))
 suppressPackageStartupMessages(library("rstatix"))
 
 # load, install, and/or update the project data -----------------------------
-
+# this requires that you are using a blaseRtemplates installation, see https://blaserlab.github.io/blaseRtemplates/articles/establish.html
+# you would have to edit the path variable to point to the directory holding baiocchi.long.datapkg tar.gz file
 blaseRtemplates::project_data(path = "~/network/X/Labs/Blaser/share/collaborators/baiocchi_long_manuscript/datapkg")
 
-
-
+# alternatively, use the data function to load the data objects after installing baiocchi.long.datapkg
+# courtesy of Rich Scriven https://stackoverflow.com/questions/27709936/get-a-list-of-the-data-sets-in-a-particular-package
+# d <- data(package = "baiocchi.long.datapkg")
+# data(list = d$results[, "Item"], package = "baiocchi.long.datapkg")
+# rm(d)
